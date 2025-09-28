@@ -47,11 +47,13 @@ function HomePage({ onNavigate }) {
     { name: "Home", icon: "🏠" },
     { name: "Services", icon: "⚡" },
     { name: "About Us", icon: "👥" },
-    { name: "Contact Us", icon: "📞" }
+    { name: "Contact Us", icon: "📞" },
+    { name: "Privacy Policy", icon: "🔒" }
   ];
 
   useEffect(() => {
     setIsLoaded(true);
+
 
     const handleScroll = () => {
       const sections = ["home", "services", "about", "contact"];
