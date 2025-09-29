@@ -88,12 +88,10 @@ function HomePage({ onNavigate }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Auto-slide effect
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % sliderImages.length);
-    }, 4000); // Change slide every 4 seconds
-
+    }, 4000); 
     return () => clearInterval(interval);
   }, [sliderImages.length]);
 
@@ -104,7 +102,7 @@ function HomePage({ onNavigate }) {
     }
   };
 
-  const handleNavigation = (tabName) => {
+const handleNavigation = (tabName) => {
     setActiveTab(tabName);
 
     if (tabName === "Services" && onNavigate) {
@@ -113,9 +111,12 @@ function HomePage({ onNavigate }) {
       onNavigate("about");
     } else if (tabName === "Contact Us" && onNavigate) {
       onNavigate("contact");
+    } else if (tabName === "Privacy Policy" && onNavigate) {
+      onNavigate("privacy");
     } else if (tabName === "Home") {
       scrollToSection("home");
     }
+    
   };
 
   const nextSlide = () => {

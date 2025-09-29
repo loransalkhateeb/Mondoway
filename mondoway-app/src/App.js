@@ -3,6 +3,7 @@ import HomePage from "./Pages/HomePage";
 import ServicesPage from "./Pages/ServicesPage";
 import AboutUs from "./Pages/AboutUs";
 import ContactUs from "./Pages/ContactUs";
+import PrivacyPolicy from './Pages/PrivacyPolicy'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -15,6 +16,8 @@ function App() {
         return <AboutUs />;
       case 'contact':
         return <ContactUs />;
+      case 'privacy':
+        return <PrivacyPolicy/>
       default:
         return <HomePage onNavigate={setCurrentPage} />;
     }

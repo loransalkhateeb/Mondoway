@@ -2,7 +2,6 @@ export default function PrivacyPolicy(){
     return(
         <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100 py-12 px-4">
             <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl border border-red-200/30 overflow-hidden">
-                {/* Header */}
                 <div className="bg-gradient-to-r from-red-600 to-red-800 text-white p-8 text-center">
                     <h1 className="text-4xl md:text-5xl font-bold mb-4">
                         User Terms & Conditions
@@ -12,9 +11,7 @@ export default function PrivacyPolicy(){
                     </p>
                 </div>
 
-                {/* Content */}
                 <div className="p-8 md:p-12 space-y-10">
-                    {/* Section 1 */}
                     <section className="border-l-4 border-red-500 pl-6">
                         <h2 className="text-2xl font-bold text-red-800 mb-4 flex items-center">
                             <span className="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
@@ -25,7 +22,6 @@ export default function PrivacyPolicy(){
                         </p>
                     </section>
 
-                    {/* Section 2 */}
                     <section className="border-l-4 border-red-500 pl-6">
                         <h2 className="text-2xl font-bold text-red-800 mb-4 flex items-center">
                             <span className="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
@@ -47,7 +43,6 @@ export default function PrivacyPolicy(){
                         </ul>
                     </section>
 
-                    {/* Section 3 */}
                     <section className="border-l-4 border-red-500 pl-6">
                         <h2 className="text-2xl font-bold text-red-800 mb-4 flex items-center">
                             <span className="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
@@ -76,7 +71,6 @@ export default function PrivacyPolicy(){
                         </ul>
                     </section>
 
-                    {/* Section 4 */}
                     <section className="border-l-4 border-red-500 pl-6">
                         <h2 className="text-2xl font-bold text-red-800 mb-4 flex items-center">
                             <span className="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mr-3">4</span>
