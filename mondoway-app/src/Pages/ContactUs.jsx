@@ -41,14 +41,10 @@ function ContactUs() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial state
+    handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
   }, [visibleElements]);
-
-  const goToHome = () => {
-    window.location.href = '/';
-  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -256,63 +252,16 @@ function ContactUs() {
       `}</style>
       
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-100 relative overflow-hidden">
-      
+      {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-20 left-20 w-40 h-40 bg-red-200/20 rounded-full animate-pulse"
-          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
-        ></div>
-        <div 
-          className="absolute top-1/3 right-32 w-32 h-32 bg-blue-200/20 rounded-full animate-bounce"
-          style={{ transform: `translateY(${scrollY * 0.15}px)`, animationDelay: '1s' }}
-        ></div>
-        <div 
-          className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-purple-200/20 rounded-full animate-pulse"
-          style={{ transform: `translateY(${scrollY * 0.2}px)`, animationDelay: '2s' }}
-        ></div>
-        <div 
-          className="absolute top-1/2 right-1/4 w-16 h-16 bg-green-200/20 rounded-full animate-bounce"
-          style={{ transform: `translateY(${scrollY * 0.12}px)`, animationDelay: '3s' }}
-        ></div>
+        <div className="absolute top-20 left-20 w-40 h-40 bg-red-200/20 rounded-full animate-pulse" style={{ transform: `translateY(${scrollY * 0.1}px)` }}></div>
+        <div className="absolute top-1/3 right-32 w-32 h-32 bg-blue-200/20 rounded-full animate-bounce" style={{ transform: `translateY(${scrollY * 0.15}px)`, animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 left-1/3 w-24 h-24 bg-purple-200/20 rounded-full animate-pulse" style={{ transform: `translateY(${scrollY * 0.2}px)`, animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-green-200/20 rounded-full animate-bounce" style={{ transform: `translateY(${scrollY * 0.12}px)`, animationDelay: '3s' }}></div>
       </div>
 
-      <header className={`relative z-10 bg-white/80 backdrop-blur-md shadow-lg border-b border-red-200/30 transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'}`}>
-        <nav className="flex items-center justify-between p-4 md:p-6">
-          <div className="flex items-center space-x-4 group cursor-pointer" onClick={goToHome}>
-            <img 
-              src="https://via.placeholder.com/64x64/dc2626/ffffff?text=M" 
-              alt="Mondoway Logo" 
-              className="w-16 h-16 rounded-lg object-cover shadow-lg group-hover:scale-110 transition-transform duration-300"
-            />
-            <span className="text-2xl font-bold text-red-800 tracking-wider">MONDOWAY</span>
-          </div>
-          
-          <div className="flex space-x-6">
-            <button 
-              onClick={goToHome}
-              className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300 hover:scale-105 transform"
-            >
-              ← Back to Home
-            </button>
-            <button 
-              onClick={goToHome}
-              className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300"
-            >
-              Services
-            </button>
-            <button 
-              onClick={goToHome}
-              className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300"
-            >
-              About Us
-            </button>
-            <span className="text-red-800 font-bold">Contact Us</span>
-          </div>
-        </nav>
-      </header>
-
       <main className="relative z-10">
-        
+        {/* Hero Section */}
         <section className="py-20 px-6 md:px-8 relative">
           <div className="max-w-7xl mx-auto text-center">
             <div className={`scroll-animate transition-all duration-1000 delay-300 ${isLoaded ? 'animate-slow-fade-up' : ''}`}>
@@ -327,6 +276,7 @@ function ContactUs() {
           </div>
         </section>
 
+        {/* Contact Methods */}
         <section className="py-20 px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
             <div className={`text-center mb-16 scroll-animate ${visibleElements.includes(0) ? 'animate-slow-zoom' : ''}`}>
@@ -344,10 +294,7 @@ function ContactUs() {
                     visibleElements.includes(index + 1) ? 
                     (index % 2 === 0 ? 'animate-slow-fade-left' : 'animate-slow-fade-right') : ''
                   }`}
-                  style={{ 
-                    animationDelay: `${500 + index * 200}ms`,
-                    transitionDelay: `${index * 150}ms`
-                  }}
+                  style={{ animationDelay: `${500 + index * 200}ms`, transitionDelay: `${index * 150}ms` }}
                   onMouseEnter={() => setActiveContactMethod(method.id)}
                   onMouseLeave={() => setActiveContactMethod(null)}
                   onClick={() => window.open(method.action, '_blank')}
@@ -380,6 +327,7 @@ function ContactUs() {
           </div>
         </section>
 
+        {/* Contact Form */}
         <section className="py-20 px-6 md:px-8 bg-gradient-to-r from-white/50 to-red-50/50">
           <div className="max-w-5xl mx-auto">
             <div className={`text-center mb-16 scroll-animate ${visibleElements.includes(5) ? 'animate-slow-rotate' : ''}`}>
@@ -390,7 +338,7 @@ function ContactUs() {
             </div>
 
             <div className={`bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl border border-red-100 scroll-animate ${visibleElements.includes(6) ? 'animate-slow-flip' : ''}`}>
-              <div className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label className="block text-red-700 font-semibold text-lg">Full Name *</label>
@@ -486,21 +434,21 @@ function ContactUs() {
 
                 <div className="text-center pt-4">
                   <button 
-                    type="button"
-                    onClick={handleSubmit}
+                    type="submit"
                     className="bg-gradient-to-r from-red-600 to-red-800 text-white px-12 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 transform hover:from-red-700 hover:to-red-900"
                   >
-                    Send Message 🚀
+                    Send Message
                   </button>
                   <p className="text-red-600 text-sm mt-4">
                     We typically respond within 24 hours during business days
                   </p>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </section>
 
+        {/* Office Location */}
         <section className="py-20 px-6 md:px-8">
           <div className="max-w-7xl mx-auto">
             <div className={`text-center mb-16 scroll-animate ${visibleElements.includes(7) ? 'animate-slow-bounce' : ''}`}>
@@ -575,6 +523,7 @@ function ContactUs() {
           </div>
         </section>
 
+        {/* FAQ Section */}
         <section className="py-20 px-6 md:px-8 bg-gradient-to-r from-red-50/50 to-white/50">
           <div className="max-w-4xl mx-auto">
             <div className={`text-center mb-16 scroll-animate ${visibleElements.includes(10) ? 'animate-slow-zoom' : ''}`}>
@@ -619,6 +568,7 @@ function ContactUs() {
           </div>
         </section>
 
+        {/* CTA Section */}
         <section className="py-20 px-6 md:px-8 bg-gradient-to-r from-red-50 to-red-100">
           <div className="max-w-4xl mx-auto text-center">
             <div className={`bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-red-100 scroll-animate ${visibleElements.includes(15) ? 'animate-slow-bounce' : ''} transform hover:scale-105 transition-all duration-700`}>
@@ -633,25 +583,19 @@ function ContactUs() {
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className="bg-gradient-to-r from-red-600 to-red-800 text-white px-12 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:scale-110 hover:rotate-1 transition-all duration-700 transform hover:from-red-700 hover:to-red-900"
                 >
-                  Get Started Now 🚀
+                  Get Started Now
                 </button>
                 <button 
                   onClick={() => window.open('tel:+962123456789', '_self')}
                   className="border-2 border-red-600 text-red-600 px-12 py-4 rounded-full font-bold text-xl hover:bg-red-50 hover:scale-110 hover:-rotate-1 transition-all duration-700 transform"
                 >
-                  Call Us Now 📞
+                  Call Us Now
                 </button>
               </div>
             </div>
           </div>
         </section>
       </main>
-
-      <footer className={`relative z-10 py-8 text-center scroll-animate ${visibleElements.includes(16) ? 'animate-slow-fade-up' : ''}`}>
-        <div className="bg-white/60 backdrop-blur-md border-t border-red-100 py-6 hover:bg-white/80 transition-all duration-700">
-          <p className="text-red-600">© 2025 Mondoway. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
     </>
   );

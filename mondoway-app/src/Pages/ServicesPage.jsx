@@ -131,10 +131,6 @@ const ServicesPage = () => {
     }
   ];
 
-  const goToHome = () => {
-    window.location.href = '/';
-  };
-
   return (
     <>
       <style jsx>{`
@@ -158,43 +154,13 @@ const ServicesPage = () => {
           }
         }
         
-        @keyframes slideInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
-        @keyframes slideInRight {
-          from {
-            opacity: 0;
-            transform: translateX(100px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-        
         .animate-fade-in {
           animation: fadeIn 1s ease-out forwards;
-        }
-        
-        .animate-slide-in-left {
-          animation: slideInLeft 0.8s ease-out forwards;
-        }
-        
-        .animate-slide-in-right {
-          animation: slideInRight 0.8s ease-out forwards;
         }
       `}</style>
 
       <div className="min-h-screen bg-gradient-to-br from-red-50 via-orange-50 to-amber-50 relative overflow-hidden">
-        
+        {/* Background decorative elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 left-10 w-32 h-32 bg-red-200/30 rounded-full animate-pulse"></div>
           <div className="absolute top-1/3 right-20 w-24 h-24 bg-orange-200/30 rounded-full animate-bounce" style={{animationDelay: '1s'}}></div>
@@ -203,43 +169,8 @@ const ServicesPage = () => {
           <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-purple-200/20 rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
         </div>
 
-        <header className="relative z-10 bg-white/80 backdrop-blur-md shadow-lg border-b border-red-200/30">
-          <nav className="flex items-center justify-between p-4 md:p-6">
-            <div className="flex items-center space-x-4">
-              <img 
-                src="/Images/b2b_mondo_logo.jpg" 
-                alt="Mondoway Logo" 
-                className="w-16 h-16 rounded-lg object-cover shadow-lg"
-              />
-              <span className="text-2xl font-bold text-red-800 tracking-wider">MONDOWAY</span>
-            </div>
-            
-            <div className="flex space-x-6">
-              <button 
-                onClick={goToHome}
-                className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300 hover:scale-105 transform"
-              >
-                ← Back to Home
-              </button>
-              <span className="text-red-800 font-bold">Services</span>
-              <button 
-                onClick={goToHome}
-                className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300"
-              >
-                About Us
-              </button>
-              <button 
-                onClick={goToHome}
-                className="text-red-700 hover:text-red-800 font-medium transition-colors duration-300"
-              >
-                Contact Us
-              </button>
-            </div>
-          </nav>
-        </header>
-
         <main className="relative z-10">
-          
+          {/* Hero Section */}
           <section className="py-20 px-6 md:px-8">
             <div className="max-w-7xl mx-auto text-center">
               <div className={`transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}>
@@ -254,6 +185,7 @@ const ServicesPage = () => {
             </div>
           </section>
 
+          {/* Services Grid */}
           <section className="py-16 px-6 md:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -315,6 +247,7 @@ const ServicesPage = () => {
             </div>
           </section>
 
+          {/* CTA Section */}
           <section className="py-20 px-6 md:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-red-100">
@@ -326,28 +259,22 @@ const ServicesPage = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button 
-                    onClick={goToHome}
+                    onClick={() => window.location.hash = 'home'}
                     className="bg-gradient-to-r from-red-600 to-red-800 text-white px-12 py-4 rounded-full font-bold text-xl hover:shadow-2xl hover:scale-105 transition-all duration-500 transform hover:from-red-700 hover:to-red-900"
                   >
-                    Download App 📱
+                    Download App
                   </button>
                   <button 
-                    onClick={goToHome}
+                    onClick={() => window.location.hash = 'about'}
                     className="border-2 border-red-600 text-red-600 px-12 py-4 rounded-full font-bold text-xl hover:bg-red-50 hover:scale-105 transition-all duration-500 transform"
                   >
-                    Learn More 📖
+                    Learn More
                   </button> 
                 </div>
               </div>
             </div>
           </section>
         </main>
-
-        <footer className="relative z-10 py-8 text-center">
-          <div className="bg-white/60 backdrop-blur-md border-t border-red-100 py-6">
-            <p className="text-red-600">© 2025 Mondoway. All rights reserved.</p>
-          </div>
-        </footer>
       </div>
     </>
   );
