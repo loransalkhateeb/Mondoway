@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "build-manual": "react-scripts build && npx cross-zip build build-root.zip",
+    "build-manual": "react-scripts build && powershell Compress-Archive -Path build\\* -DestinationPath build-root.zip -Force",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
