@@ -18,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build-manual": "react-scripts build && cd build && zip -r ../build-root.zip .",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
