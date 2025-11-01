@@ -18,8 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "build-manual": "react-scripts build && cd build && zip -r ../build-root.zip .",
     "test": "react-scripts test",
+    "build-manual": "react-scripts build && npx cross-zip build build-root.zip",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "cross-zip": "^4.0.1"
   }
 }
